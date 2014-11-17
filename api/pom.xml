@@ -17,15 +17,17 @@ limitations under the License.
 
     <parent>
         <groupId>org.javaconfig</groupId>
-        <artifactId>javaconfig-parent</artifactId>
+        <artifactId>tamaya-all</artifactId>
         <version>0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
 	<groupId>org.javaconfig</groupId>
-	<artifactId>config-api</artifactId>
+	<artifactId>tamaya-api</artifactId>
 
-	<name>JavaConfig - API</name>
+	<name>Tamaya - API</name>
+    <description>The API defines a complete SE based API for reading, creating an dmanaging of configuration and
+    environment data.</description>
 	<packaging>jar</packaging>
 
     <properties>

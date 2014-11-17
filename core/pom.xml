@@ -16,14 +16,14 @@ limitations under the License.
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.javaconfig</groupId>
-		<artifactId>javaconfig-parent</artifactId>
+        <groupId>org.javaconfig</groupId>
+        <artifactId>tamaya-all</artifactId>
 		<version>0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
 	</parent>
     <groupId>org.javaconfig</groupId>
-	<artifactId>javaconfig-core</artifactId>
-	<name>JavaConfig - Core Library</name>
+	<artifactId>tamaya-core</artifactId>
+	<name>Tamaya Configuration - Core Implementation Library</name>
 	<packaging>bundle</packaging>
 
     <properties>
@@ -60,7 +60,7 @@ limitations under the License.
                 <plugin>
                     <groupId>org.asciidoctor</groupId>
                     <artifactId>asciidoctor-maven-plugin</artifactId>
-                    <version>0.1.4</version>
+                    <version>0.1.5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
@@ -113,6 +113,18 @@ limitations under the License.
                             <backend>html</backend>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>output-pdf</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/docs</outputDirectory>
+                            <sourceHighlighter>highlightjs</sourceHighlighter> <!-- coderay -->
+                            <backend>pdf</backend>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 		</plugins>
@@ -128,7 +140,6 @@ limitations under the License.
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-logging</artifactId>
-                <version></version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.weld.se</groupId>
@@ -155,7 +166,7 @@ limitations under the License.
         </dependency>
 		<dependency>
 			<groupId>org.javaconfig</groupId>
-			<artifactId>config-api</artifactId>
+			<artifactId>tamaya-api</artifactId>
 			<version>0.1-SNAPSHOT</version>
 		</dependency>
         <dependency>
@@ -173,80 +184,4 @@ limitations under the License.
 
 	</dependencies>
 
-    <repositories>
-        <repository>
-            <id>/java-config/mvn-repo</id>
-            <url>https://raw.github.com/java-config/mvn-repo/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <profiles>
-        <profile>
-            <id>deployToGithub</id>
-            <activation>
-                <property>
-                    <name>gh</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <properties>
-                <github.global.server>github</github.global.server>
-            </properties>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>com.github.github</groupId>
-                            <artifactId>site-maven-plugin</artifactId>
-                            <version>0.9</version>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>2.8.1</version>
-                        <configuration>
-                            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.github.github</groupId>
-                        <artifactId>site-maven-plugin</artifactId>
-                        <version>0.10</version>
-                        <configuration>
-                            <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
-                            <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
-                            <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-                            <branch>refs/heads/master</branch>                       <!-- remote branch name -->
-                            <includes><include>**/*</include></includes>
-                            <repositoryName>mvn-repo</repositoryName>      <!-- github repo name -->
-                            <repositoryOwner>java-config</repositoryOwner>    <!-- github username  -->
-                            <merge>true</merge>
-                        </configuration>
-                        <executions>
-                            <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
-                            <execution>
-                                <goals>
-                                    <goal>site</goal>
-                                </goals>
-                                <phase>deploy</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <distributionManagement>
-                <repository>
-                    <id>internal.repo</id>
-                    <name>Temporary Staging Repository</name>
-                    <url>file://${project.build.directory}/mvn-repo</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
 </project>
