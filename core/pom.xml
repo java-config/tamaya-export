@@ -1,0 +1,252 @@
+<!-- 
+Copyright 2014 Anatole Tresch and other (see authors).
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+   http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.javaconfig</groupId>
+		<artifactId>javaconfig-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+	</parent>
+    <groupId>org.javaconfig</groupId>
+	<artifactId>javaconfig-core</artifactId>
+	<name>JavaConfig - Core Library</name>
+	<packaging>bundle</packaging>
+
+    <properties>
+        <github.global.server>github</github.global.server>
+        <jdkVersion>1.8</jdkVersion>
+        <junit.version>4.8.2</junit.version>
+        <maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
+        <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
+    </properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- ======================================================= -->
+				<!-- Packaging (OSGi bundle) -->
+				<!-- ======================================================= -->
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.3.5</version>
+					<extensions>true</extensions>
+					<configuration>
+						<instructions>
+							<Export-Package>org.javaconfig.annot.*</Export-Package>
+                            <Export-Package>org.javaconfig.cdi.*</Export-Package>
+                            <Export-Package>org.javaconfig.config.*</Export-Package>
+                            <Export-Package>org.javaconfig.env.*</Export-Package>
+                            <Export-Package>org.javaconfig.properties.*</Export-Package>
+                            <Export-Package>org.javaconfig.spi.*</Export-Package>
+							<Private-Package>!*</Private-Package>
+						</instructions>
+					</configuration>
+				</plugin>
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <version>0.1.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.7.2.201409121644</version>
+                </plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<!-- ======================================================= -->
+			<!-- Packaging (OSGi bundle) -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+			</plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compile.sourceLevel}</source>
+                    <target>${maven.compile.targetLevel}</target>
+                </configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/docs</outputDirectory>
+                            <sourceHighlighter>highlightjs</sourceHighlighter> <!-- coderay -->
+                            <backend>html</backend>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version></version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld.se</groupId>
+                <artifactId>weld-se</artifactId>
+                <version>2.2.4.Final</version>
+            </dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+		<dependency>
+			<groupId>org.javaconfig</groupId>
+			<artifactId>config-api</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>el</artifactId>
+            <version>2.2</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+	</dependencies>
+
+    <repositories>
+        <repository>
+            <id>/java-config/mvn-repo</id>
+            <url>https://raw.github.com/java-config/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <profiles>
+        <profile>
+            <id>deployToGithub</id>
+            <activation>
+                <property>
+                    <name>gh</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <properties>
+                <github.global.server>github</github.global.server>
+            </properties>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.github.github</groupId>
+                            <artifactId>site-maven-plugin</artifactId>
+                            <version>0.9</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>2.8.1</version>
+                        <configuration>
+                            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>0.10</version>
+                        <configuration>
+                            <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                            <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                            <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+                            <branch>refs/heads/master</branch>                       <!-- remote branch name -->
+                            <includes><include>**/*</include></includes>
+                            <repositoryName>mvn-repo</repositoryName>      <!-- github repo name -->
+                            <repositoryOwner>java-config</repositoryOwner>    <!-- github username  -->
+                            <merge>true</merge>
+                        </configuration>
+                        <executions>
+                            <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>deploy</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <repository>
+                    <id>internal.repo</id>
+                    <name>Temporary Staging Repository</name>
+                    <url>file://${project.build.directory}/mvn-repo</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>

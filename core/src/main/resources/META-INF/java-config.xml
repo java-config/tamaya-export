@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+#
+# Copyright 2014 Anatole Tresch and other (see authors).
+#
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+-->
+<java-config xmlns="http://java.net/projects/javaconfig/java-config/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="java-config-1.0.0.xsd">
+    <metaModel id="default">
+       <configParts>
+           <configPart key="sys-properties" partType="javax.config.PropertyMap" propertyMapSpec="org.javaconfig.properties.SystemPropertiesPropertyMap"/>
+           <configPart key="env-properties" partType="javax.config.PropertyMap" propertyMapSpec="org.javaconfig.properties.EnvironmentPropertyMap"/>
+           <configPart key="--system--" partType="org.javaconfig.Configuration" propertyMapSpec="union">
+               <childPart partType="javax.config.PropertyMap" keyRef="sys-properties"/>
+               <childPart partType="javax.config.PropertyMap" keyRef="env-properties"/>
+           </configPart>
+       </configParts>
+    </metaModel>
+</java-config>
