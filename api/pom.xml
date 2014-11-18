@@ -38,20 +38,21 @@ limitations under the License.
         <plugins>
             <!-- ======================================================= -->
             <!-- Packaging (OSGi bundle) -->
-            <!-- ======================================================= -->
+            <!-- =======================================================
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>org.apache.tamaya.annot.*</Export-Package>
                         <Export-Package>org.apache.tamaya.*</Export-Package>
-                        <Export-Package>org.apache.tamaya.spi.*</Export-Package>
+                        <Export-Package>org.apache.tamaya.annot.*</Export-Package>
+                        <Export-Package>org.apache.tamaya.core.spi.*</Export-Package>
                         <Private-Package>!*</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>

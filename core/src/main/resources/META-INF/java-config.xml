@@ -20,9 +20,9 @@
 	xsi:noNamespaceSchemaLocation="java-config-1.0.0.xsd">
     <metaModel id="default">
        <configParts>
-           <configPart key="sys-properties" partType="javax.config.PropertyMap" propertyMapSpec="org.javaconfig.properties.SystemPropertiesPropertyMap"/>
-           <configPart key="env-properties" partType="javax.config.PropertyMap" propertyMapSpec="org.javaconfig.properties.EnvironmentPropertyMap"/>
-           <configPart key="--system--" partType="org.javaconfig.Configuration" propertyMapSpec="union">
+           <configPart key="sys-properties" partType="javax.config.PropertyMap" propertyMapSpec="org.apache.tamaya.core.properties.SystemPropertiesPropertyMap"/>
+           <configPart key="env-properties" partType="javax.config.PropertyMap" propertyMapSpec="org.apache.tamaya.core.properties.EnvironmentPropertyMap"/>
+           <configPart key="--system--" partType="org.apache.tamaya.Configuration" propertyMapSpec="union">
                <childPart partType="javax.config.PropertyMap" keyRef="sys-properties"/>
                <childPart partType="javax.config.PropertyMap" keyRef="env-properties"/>
            </configPart>

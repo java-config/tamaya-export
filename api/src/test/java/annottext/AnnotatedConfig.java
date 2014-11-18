@@ -15,10 +15,10 @@
  */
 package annottext;
 
-import org.javaconfig.annot.ConfiguredProperty;
-import org.javaconfig.annot.WithLoadPolicy;
-import org.javaconfig.annot.DefaultValue;
-import org.javaconfig.annot.LoadPolicy;
+import org.apache.tamaya.annot.ConfiguredProperty;
+import org.apache.tamaya.annot.WithLoadPolicy;
+import org.apache.tamaya.annot.DefaultValue;
+import org.apache.tamaya.annot.LoadPolicy;
 
 /**
  * An example showing some basic annotations, using an interface to be proxied by the
