@@ -1,16 +1,18 @@
-package org.apache.tamaya.samples.annotations;
+package org.apache.tamaya.ext.cdi;
 
 import org.apache.tamaya.annot.ConfigChanged;
 import org.apache.tamaya.annot.ConfiguredProperty;
 import org.apache.tamaya.annot.DefaultValue;
 import org.apache.tamaya.annot.WithConfig;
 
+import javax.inject.Singleton;
 import java.beans.PropertyChangeEvent;
 import java.math.BigDecimal;
 
 /**
  * Created by Anatole on 08.09.2014.
  */
+@Singleton
 public class ConfiguredClass{
 
     @ConfiguredProperty

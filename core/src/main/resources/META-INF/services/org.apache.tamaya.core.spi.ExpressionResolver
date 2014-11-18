@@ -1,3 +1,2 @@
 org.apache.tamaya.core.internal.el.SystemPropertyResolver
 org.apache.tamaya.core.internal.el.EnvironmentPropertyResolver
-org.apache.tamaya.core.internal.el.ELResolver

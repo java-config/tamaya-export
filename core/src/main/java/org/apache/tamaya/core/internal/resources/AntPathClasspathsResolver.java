@@ -14,7 +14,6 @@
 
 package org.apache.tamaya.core.internal.resources;
 
-import javax.inject.Singleton;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -22,7 +21,6 @@ import java.net.URL;
 import java.util.*;
 import java.util.stream.Stream;
 
-@Singleton
 public class AntPathClasspathsResolver implements PathResolver{
 
     @Override

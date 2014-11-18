@@ -19,10 +19,8 @@ import org.apache.tamaya.core.env.ConfiguredSystemProperties;
 import org.apache.tamaya.core.env.EnvironmentBuilder;
 
 import java.net.InetAddress;
-import java.util.Locale;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Properties;
-import java.util.TimeZone;
 
 import org.apache.tamaya.Environment;
 import org.apache.tamaya.Stage;

@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tamaya.samples.annotations;
+package org.apache.tamaya.ext.cdi;
 
-import org.apache.tamaya.Configuration;
+import org.jboss.weld.environment.se.Weld;
+import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.Test;
-
-import static junit.framework.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by Anatole on 08.09.2014.
@@ -27,14 +25,14 @@ import static org.junit.Assert.assertNotNull;
 public class ConfiguredTest{
 
     @Test
-    public void testTemplate(){
-        ConfigTemplate template = Configuration.of(ConfigTemplate.class);
-        assertNotNull(template);
-        assertNotNull(template.computerName());
-        assertNotNull(template.APPDATA());
-        assertEquals(2233, template.int2());
-        assertEquals(Integer.valueOf(5), template.int1());
-        assertNotNull(System.getProperty("java.version"), template.javaVersion2());
+    public void testInjection(){
+        Weld weld = new Weld();
+        WeldContainer container = weld.initialize();
+        ConfiguredClass item = container.instance().select(ConfiguredClass.class).get();
+        System.out.println("********************************************");
+        System.out.println(item);
+        System.out.println("********************************************");
+        weld.shutdown();
     }
 
 }

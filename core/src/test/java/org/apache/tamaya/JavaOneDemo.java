@@ -6,8 +6,6 @@ import org.apache.tamaya.core.properties.AggregationPolicy;
 import org.apache.tamaya.core.properties.PropertyProviders;
 import org.apache.tamaya.samples.annotations.ConfiguredClass;
 import org.apache.tamaya.core.spi.ConfigurationFormat;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -20,21 +18,6 @@ import static org.junit.Assert.assertNotNull;
  * Created by Anatole on 30.09.2014.
  */
 public class JavaOneDemo{
-    @Test
-    public void testInjection(){
-        Weld weld = new Weld();
-        try {
-            WeldContainer container = weld.initialize();
-            ConfiguredClass item = container.instance().select(ConfiguredClass.class).get();
-            System.out.println("********************************************");
-            System.out.println(item);
-            System.out.println("********************************************");
-            assertNotNull(item.getValue1());
-            assertNotNull(item.getRuntimeVersion());
-        }finally{
-            weld.shutdown();
-        }
-    }
 
     @Test
     public void testFromSystemProperties(){

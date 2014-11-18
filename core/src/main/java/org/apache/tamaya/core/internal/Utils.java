@@ -18,7 +18,6 @@ package org.apache.tamaya.core.internal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.enterprise.inject.spi.Annotated;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.AnnotatedElement;
@@ -48,7 +47,7 @@ public final class Utils {
      * @return a list with the annotations found (could be empty, but never null).
      */
     public static <T extends Annotation, R extends Annotation> Collection<T>
-            getAnnotations(Annotated annotated,
+            getAnnotations(AnnotatedElement annotated,
                               Class<T> repeatableAnnotation,
                               Class<R> annotationContainer){
         List<T> result = new ArrayList<>();

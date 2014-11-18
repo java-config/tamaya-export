@@ -21,7 +21,6 @@ import org.apache.tamaya.core.spi.ConfigurationFormat;
 
 
 import org.apache.tamaya.ConfigException;
-import javax.inject.Singleton;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -29,7 +28,6 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-@Singleton
 public class IniFormat implements ConfigurationFormat{
 
     private static final Logger LOG = LogManager.getLogger(IniFormat.class);

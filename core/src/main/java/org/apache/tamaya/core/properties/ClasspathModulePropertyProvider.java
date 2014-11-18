@@ -18,7 +18,8 @@ package org.apache.tamaya.core.properties;
 import org.apache.tamaya.core.spi.ResourceLoader;
 
 import org.apache.tamaya.MetaInfoBuilder;
-import javax.enterprise.inject.spi.CDI;
+import org.apache.tamaya.spi.Bootstrap;
+
 import java.io.InputStream;
 import java.net.URI;
 import java.util.*;
@@ -48,7 +49,7 @@ public class ClasspathModulePropertyProvider extends AbstractPropertyProvider{
 		for (String srcPattern : sources) {
 			List<URI> urls = null;
 			try {
-				urls = CDI.current().select(ResourceLoader.class).get().getResources(classLoader, srcPattern);
+				Bootstrap.getService(ResourceLoader.class).getResources(classLoader, srcPattern);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}

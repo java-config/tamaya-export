@@ -4,10 +4,8 @@ import org.apache.tamaya.core.config.ConfigurationBuilder;
 import org.apache.tamaya.core.properties.AggregationPolicy;
 import org.apache.tamaya.core.properties.PropertyProviders;
 import org.apache.tamaya.core.spi.ConfigurationProviderSpi;
-import org.jboss.weld.literal.NamedLiteral;
 
 import org.apache.tamaya.Configuration;
-import org.apache.tamaya.Environment;
 import org.apache.tamaya.MetaInfoBuilder;
 
 /**
@@ -25,7 +23,7 @@ public class DefaultConfigProvider implements ConfigurationProviderSpi{
     @Override
     public Configuration getConfiguration(){
         if(config == null){
-            config = ConfigurationBuilder.of(NamedLiteral.DEFAULT.value())
+            config = ConfigurationBuilder.of("")
                     .addResources("classpath*:META-INF/config/**/*.xml", "classpath*:META-INF/config/**/*.properties",
                                   "classpath*:META-INF/config/**/*.init").setMetainfo(
                             MetaInfoBuilder.of("Default Configuration")

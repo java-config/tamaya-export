@@ -14,13 +14,11 @@
 
 package org.apache.tamaya.core.internal.resources;
 
-import javax.inject.Singleton;
 import java.io.File;
 import java.net.URI;
 import java.util.*;
 import java.util.stream.Stream;
 
-@Singleton
 public class AntPathFilesResolver implements PathResolver{
 
     @Override

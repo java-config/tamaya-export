@@ -17,7 +17,6 @@ package org.apache.tamaya.core.internal.format;
 
 import org.apache.tamaya.core.spi.ConfigurationFormat;
 
-import javax.inject.Singleton;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.Collections;
@@ -25,7 +24,6 @@ import java.util.Map;
 import java.util.Properties;
 
 
-@Singleton
 public class PropertiesXmlFormat implements ConfigurationFormat{
 
     @Override

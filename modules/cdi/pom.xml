@@ -17,12 +17,12 @@ limitations under the License.
 
     <parent>
         <groupId>org.apache</groupId>
-        <artifactId>tamaya-all</artifactId>
+        <artifactId>tamaya-modules</artifactId>
         <version>0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
-    <artifactId>tamaya-core</artifactId>
-    <name>Apache Tamaya - Core Implementation Library</name>
+    <artifactId>tamaya-ext-cdi</artifactId>
+    <name>Apache Tamaya Module - CDI Integration</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -109,6 +109,15 @@ limitations under the License.
             </plugin>
         </plugins>
     </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.weld.se</groupId>
+                <artifactId>weld-se</artifactId>
+                <version>2.2.4.Final</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -116,19 +125,15 @@ limitations under the License.
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache</groupId>
-            <artifactId>tamaya-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.1</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>tamaya-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

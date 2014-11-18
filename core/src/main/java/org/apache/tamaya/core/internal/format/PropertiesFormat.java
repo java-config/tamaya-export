@@ -23,9 +23,6 @@ import java.util.Properties;
 
 import org.apache.tamaya.core.spi.ConfigurationFormat;
 
-import javax.inject.Singleton;
-
-@Singleton
 public class PropertiesFormat implements ConfigurationFormat{
 
     @Override

@@ -17,7 +17,6 @@ package org.apache.tamaya.core.internal;
 
 import org.apache.tamaya.core.spi.ConfigurationProviderSpi;
 import org.apache.tamaya.core.spi.ExpressionEvaluator;
-import org.jboss.weld.literal.NamedLiteral;
 
 import org.apache.tamaya.ConfigException;
 import org.apache.tamaya.Configuration;
@@ -89,7 +88,7 @@ public class DefaultConfigurationManagerSingletonSpi implements ConfigurationMan
 
     private String getConfigId(Annotation... qualifiers) {
         if (qualifiers == null || qualifiers.length == 0) {
-            return getConfigId(NamedLiteral.DEFAULT);
+            return "";
         }
         StringBuilder b = new StringBuilder();
         for (Annotation annot : qualifiers) {
