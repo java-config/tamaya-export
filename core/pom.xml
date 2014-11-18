@@ -116,8 +116,9 @@ limitations under the License.
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.apache.commons</groupId>
+                <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
+                <version>1.2</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.weld.se</groupId>
