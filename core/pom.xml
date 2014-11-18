@@ -12,19 +12,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-        <groupId>org.javaconfig</groupId>
+    <parent>
+        <groupId>org.apache</groupId>
         <artifactId>tamaya-all</artifactId>
-		<version>0.1-SNAPSHOT</version>
+        <version>0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
-	</parent>
-    <groupId>org.javaconfig</groupId>
-	<artifactId>tamaya-core</artifactId>
-	<name>Tamaya Configuration - Core Implementation Library</name>
-	<packaging>bundle</packaging>
+    </parent>
+    <artifactId>tamaya-core</artifactId>
+    <name>Apache Tamaya Configuration - Core Implementation Library</name>
+    <packaging>jar</packaging>
 
     <properties>
         <github.global.server>github</github.global.server>
@@ -34,49 +33,26 @@ limitations under the License.
         <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
     </properties>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<!-- ======================================================= -->
-				<!-- Packaging (OSGi bundle) -->
-				<!-- ======================================================= -->
-				<plugin>
-					<groupId>org.apache.felix</groupId>
-					<artifactId>maven-bundle-plugin</artifactId>
-					<version>2.3.5</version>
-					<extensions>true</extensions>
-					<configuration>
-						<instructions>
-							<Export-Package>org.javaconfig.annot.*</Export-Package>
-                            <Export-Package>org.javaconfig.cdi.*</Export-Package>
-                            <Export-Package>org.javaconfig.config.*</Export-Package>
-                            <Export-Package>org.javaconfig.env.*</Export-Package>
-                            <Export-Package>org.javaconfig.properties.*</Export-Package>
-                            <Export-Package>org.javaconfig.spi.*</Export-Package>
-							<Private-Package>!*</Private-Package>
-						</instructions>
-					</configuration>
-				</plugin>
-                <plugin>
-                    <groupId>org.asciidoctor</groupId>
-                    <artifactId>asciidoctor-maven-plugin</artifactId>
-                    <version>0.1.5</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.7.2.201409121644</version>
-                </plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<!-- ======================================================= -->
-			<!-- Packaging (OSGi bundle) -->
-			<!-- ======================================================= -->
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-			</plugin>
+    <build>
+        <plugins>
+            <!-- ======================================================= -->
+            <!-- Packaging (OSGi bundle) -->
+            <!-- ======================================================= -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>org.apache.tamaya.cdi.*</Export-Package>
+                        <Export-Package>org.apache.tamaya.config.*</Export-Package>
+                        <Export-Package>org.apache.tamaya.env.*</Export-Package>
+                        <Export-Package>org.apache.tamaya.properties.*</Export-Package>
+                        <Export-Package>org.apache.tamaya.spi.*</Export-Package>
+                        <Private-Package>!*</Private-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -89,14 +65,14 @@ limitations under the License.
                     </execution>
                 </executions>
             </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>${maven.compile.sourceLevel}</source>
                     <target>${maven.compile.targetLevel}</target>
                 </configuration>
-			</plugin>
+            </plugin>
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
@@ -109,7 +85,8 @@ limitations under the License.
                         </goals>
                         <configuration>
                             <outputDirectory>target/docs</outputDirectory>
-                            <sourceHighlighter>highlightjs</sourceHighlighter> <!-- coderay -->
+                            <sourceHighlighter>highlightjs</sourceHighlighter>
+                            <!-- coderay -->
                             <backend>html</backend>
                         </configuration>
                     </execution>
@@ -121,22 +98,23 @@ limitations under the License.
                         </goals>
                         <configuration>
                             <outputDirectory>target/docs</outputDirectory>
-                            <sourceHighlighter>highlightjs</sourceHighlighter> <!-- coderay -->
+                            <sourceHighlighter>highlightjs</sourceHighlighter>
+                            <!-- coderay -->
                             <backend>pdf</backend>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-		</plugins>
-	</build>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
+        </plugins>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-logging</artifactId>
@@ -146,14 +124,14 @@ limitations under the License.
                 <artifactId>weld-se</artifactId>
                 <version>2.2.4.Final</version>
             </dependency>
-		</dependencies>
-	</dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -164,11 +142,11 @@ limitations under the License.
             <artifactId>logback-classic</artifactId>
             <version>1.0.6</version>
         </dependency>
-		<dependency>
-			<groupId>org.javaconfig</groupId>
-			<artifactId>tamaya-api</artifactId>
-			<version>0.1-SNAPSHOT</version>
-		</dependency>
+        <dependency>
+            <groupId>org.javaconfig</groupId>
+            <artifactId>tamaya-api</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>el</artifactId>
@@ -182,6 +160,6 @@ limitations under the License.
             <optional>true</optional>
         </dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>
