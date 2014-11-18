@@ -22,7 +22,7 @@ limitations under the License.
         <relativePath>..</relativePath>
     </parent>
     <artifactId>tamaya-core</artifactId>
-    <name>Apache Tamaya  - Core Implementation Library</name>
+    <name>Apache Tamaya - Core Implementation Library</name>
     <packaging>jar</packaging>
 
     <properties>
