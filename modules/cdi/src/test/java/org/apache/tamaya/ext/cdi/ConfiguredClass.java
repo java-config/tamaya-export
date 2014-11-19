@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 @Singleton
 public class ConfiguredClass{
 
+    @WithConfig("test")
     @ConfiguredProperty
     private String testProperty;
 
