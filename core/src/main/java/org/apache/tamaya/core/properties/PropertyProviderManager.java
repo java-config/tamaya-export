@@ -1,17 +1,20 @@
 /*
- * Copyright 2014 Anatole Tresch and other (see authors).
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
  */
 package org.apache.tamaya.core.properties;
 
@@ -22,7 +25,7 @@ import java.util.Collection;
  * Service for accessing configuration. A configuration service is always base
  * on the environment definition provided by one instance of
  * {@link org.apache.tamaya.core.spi.EnvironmentManagerSingletonSpi}. It is possible to define multiple
- * {@link PropertyProviderManager} instances, if required. <h3>Implementation
+ * {@link org.apache.tamaya.core.properties.PropertyProviderManager} instances, if required. <h3>Implementation
  * PropertyMapSpec</h3> Implementations of this interface must be
  * <ul>
  * <li>Thread safe.

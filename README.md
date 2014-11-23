@@ -1,10 +1,7 @@
-tamaya-export
+Apache Tamaya
 =============
 
-Prepared export to Apache Tamaya:
-
-
-Copyright 2014 Anatole Tresch and other (see authors).
+Copyright 2014 The Apache Software Foundation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
