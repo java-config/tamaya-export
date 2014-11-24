@@ -29,8 +29,6 @@ import java.util.*;
  * Implementation for a {@link org.apache.tamaya.PropertyProvider} that is an aggregate of
  * multiple child instances, where all existing key/values in a replacementMap will
  * replace values in a main map, if present there.
- *
- * @author Anatole
  */
 class ReplacingPropertyProvider implements PropertyProvider{
 

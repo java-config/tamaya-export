@@ -28,8 +28,6 @@ import org.apache.tamaya.spi.Bootstrap;
 
 /**
  * Singleton accessor to access registered reader mechanism.
- * 
- * @author Anatole Tresch.
  */
 public final class DefaultConfigFormatsSingletonSpi implements ConfigurationFormatsSingletonSpi{
 

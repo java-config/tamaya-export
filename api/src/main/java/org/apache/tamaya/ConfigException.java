@@ -20,7 +20,6 @@ package org.apache.tamaya;
 
 /**
  * Exception class (runtime exception) for configuration issues.
- * @author Anatole Tresch
  */
 public class ConfigException extends RuntimeException{
 

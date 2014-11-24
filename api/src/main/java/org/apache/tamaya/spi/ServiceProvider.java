@@ -24,9 +24,6 @@ import java.util.List;
 /**
  * This class models the component that is managing the lifecycle of the
  * services used by the Configuration API.
- * 
- * @author Anatole Tresch
- * @author Werner Keil
  */
 public interface ServiceProvider {
 

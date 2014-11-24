@@ -39,8 +39,6 @@ import java.util.Set;
  * <li>serializable</li>
  * </ul>
  * </p>
- *
- * @author Anatole Tresch
  */
 public interface PropertyProvider {
 

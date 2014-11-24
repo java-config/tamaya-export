@@ -20,6 +20,8 @@ package org.apache.tamaya.core.spi;
 
 import org.apache.tamaya.Environment;
 
+import java.util.Set;
+
 /**
  * SPI for components that define a concrete type of {@link org.apache.tamaya.Environment}.
  * The chain of environment providers determine the current {@link Environment} active
@@ -31,5 +33,4 @@ public interface EnvironmentProvider {
     String getEnvironmentType();
     boolean isEnvironmentActive();
     Environment getEnvironment(Environment parentEnvironment);
-
 }

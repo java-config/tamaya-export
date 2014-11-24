@@ -30,8 +30,6 @@ import java.util.Collection;
  * <ul>
  * <li>Thread safe.
  * </ul>
- *
- * @author Anatole Tresch
  */
 public interface PropertyProviderManager{
 

@@ -31,8 +31,6 @@ import org.apache.tamaya.core.spi.EnvironmentProvider;
 
 /**
  * Default {@link org.apache.tamaya.Environment}.
- * 
- * @author Anatole Tresch.
  */
 public final class InitialEnvironmentProvider implements EnvironmentProvider{
 

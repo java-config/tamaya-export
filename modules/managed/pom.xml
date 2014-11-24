@@ -27,7 +27,7 @@ under the License.
         <relativePath>..</relativePath>
     </parent>
     <artifactId>tamaya-ext-managed</artifactId>
-    <name>Apache Tamaya Module - Management Server</name>
+    <name>Apache Tamaya Module - Management Beans</name>
     <packaging>jar</packaging>
 
     <properties>

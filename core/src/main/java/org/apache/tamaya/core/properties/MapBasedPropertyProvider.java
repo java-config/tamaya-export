@@ -29,8 +29,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Models a {@link org.apache.tamaya.PropertyProvider} that can be build using a builder pattern.
- *
- * @author Anatole Tresch
  */
 class MapBasedPropertyProvider extends AbstractPropertyProvider{
 

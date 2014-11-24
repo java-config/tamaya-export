@@ -33,8 +33,6 @@ import java.util.function.Supplier;
 /**
  * Accessor factory for several standard {@link org.apache.tamaya.PropertyProvider} instances, usable for creating {@code Configuration}
  * parts.
- *
- * @author Anatole Tresch
  */
 public final class PropertyProviders {
 

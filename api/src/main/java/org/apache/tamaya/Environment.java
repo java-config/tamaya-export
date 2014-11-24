@@ -33,8 +33,6 @@ import java.util.Set;
  * <li>Immutable
  * <li>serializable
  * </ul>
- * 
- * @author Anatole Tresch
  */
 public interface Environment extends StageSupplier, Iterable<Environment>{
 
@@ -147,6 +145,5 @@ public interface Environment extends StageSupplier, Iterable<Environment>{
     public static boolean isEnvironmentActive(String environmentType){
         return EnvironmentManager.isEnvironmentActive(environmentType);
     }
-
 
 }

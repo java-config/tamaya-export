@@ -36,8 +36,6 @@ import java.util.stream.Collectors;
  * <li>thread safe,
  * <li>and behaves contextual.
  * </ul>
- *
- * @author Anatole Tresch
  */
 public class SingleEnvironmentManager implements EnvironmentManagerSingletonSpi{
 

@@ -44,10 +44,16 @@ under the License.
             <artifactId>tamaya-core</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>mbean-annotation-api</artifactId>
+            <version>4.7.1</version>
+        </dependency>
     </dependencies>
 
     <modules>
         <module>cdi</module>
+        <module>managed</module>
     </modules>
 
 </project>

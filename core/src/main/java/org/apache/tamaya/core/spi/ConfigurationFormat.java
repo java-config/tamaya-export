@@ -25,8 +25,6 @@ import java.util.Map;
  * Implementations of this class encapsulate the mechanism how to read a
  * resource URI including interpreting the format correctly (e.g. xml vs.
  * properties).
- *
- * @author Anatole Tresch
  */
 public interface ConfigurationFormat{
 

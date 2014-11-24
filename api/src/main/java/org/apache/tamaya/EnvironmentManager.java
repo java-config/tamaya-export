@@ -23,6 +23,7 @@ import org.apache.tamaya.spi.EnvironmentManagerSingletonSpi;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 
 /**
@@ -36,7 +37,6 @@ final class EnvironmentManager{
      * Private singleton constructor.
      */
     private EnvironmentManager(){}
-
 
     /**
      * Method to load the environment SPI during initial load.

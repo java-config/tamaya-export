@@ -29,8 +29,6 @@ import java.util.logging.Logger;
 /**
  * This class implements the (default) {@link ServiceProvider} interface and hereby uses the JDK
  * {@link java.util.ServiceLoader} to load the services required.
- *
- * @author Anatole Tresch
  */
 class DefaultServiceProvider implements ServiceProvider {
     /** List of services loaded, per class. */

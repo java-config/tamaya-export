@@ -29,8 +29,6 @@ import java.util.logging.Logger;
  * This singleton provides access to the services available in the current runtime environment and context. The
  * behaviour can be adapted, by calling {@link org.apache.tamaya.spi.Bootstrap#init(ServiceProvider)} before accessing any moneteray
  * services.
- *
- * @author Anatole Tresch
  */
 public final class Bootstrap{
     /**

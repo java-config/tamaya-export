@@ -23,8 +23,6 @@ import java.util.function.Function;
 
 /**
  * This service provides different {@link org.apache.tamaya.PropertyAdapter} instances for types.
- * 
- * @author Anatole Tresch
  */
 public interface AdapterProviderSpi{
 

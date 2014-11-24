@@ -25,8 +25,6 @@ import org.apache.tamaya.Environment;
  * The selector is responsible for determining if a configuration should be
  * included into the current configuration aggregate for a given runtime
  * {@link org.apache.tamaya.Environment}.
- * 
- * @author Anatole Tresch
  */
 @FunctionalInterface
 public interface EnvironmentSelector {

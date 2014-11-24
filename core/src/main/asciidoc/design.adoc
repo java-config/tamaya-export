@@ -633,8 +633,6 @@ From a programmatic side on SE level this feature can be implemented by implemen
  * Interface implemented by code interested in configuration changes, especially for code running in
  * a standalone/non CDI context. When CDI is available, {@link ConfigChangeEvent} are distributed by
  * sending corresponding enterprise events.
- *
- * @author Anatole Tresch
  */
 @FunctionalInterface
 public interface ConfigChangeListener {

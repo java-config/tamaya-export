@@ -28,8 +28,6 @@ import java.io.Serializable;
  * the mechanism, how configuration is read.
  * <li>the <b>location</b> configures the reader, what resources to read.
  * </ul>
- * 
- * @author Anatole Tresch
  */
 public final class ConfigLocation implements Serializable {
 

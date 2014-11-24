@@ -41,8 +41,6 @@ import java.util.stream.Collectors;
  * by reading out its complete configuration map into a serializable and remotable structure. This helps significantly
  * simplifying the development of this interface, e.g. for being backed up by systems and stores that are not part of
  * this library at all.
- *
- * @author Anatole Tresch
  */
 public interface Configuration extends PropertyProvider{
 

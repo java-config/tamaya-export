@@ -23,8 +23,6 @@ import java.util.Map;
 
 /**
  * Stage which should be supported by all layers.
- * 
- * @author Anatole Tresch
  */
 public interface Stage {
     /**

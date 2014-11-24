@@ -30,7 +30,6 @@ import java.beans.PropertyChangeListener;
  *
  * @see org.javaconfig.ConfigurationManager
  * @see Bootstrap
- * @author Anatole Tresch
  */
 public interface ConfigurationManagerSingletonSpi{
 

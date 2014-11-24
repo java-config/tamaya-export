@@ -23,8 +23,6 @@ import org.apache.tamaya.Configuration;
 
 /**
  * Service used for resolving configuration annotations.
- * 
- * @author Anatole Tresch
  */
 public interface ObjectConfiguratorService{
 

@@ -29,8 +29,6 @@ import org.junit.Test;
 
 /**
  * Test class for {@link org.apache.tamaya.core.internal.DefaultConfigurationManagerSingletonSpi}.
- * 
- * @author Anatole Tresch
  */
 public class DefaultConfigurationManagerSingletonSpiSingletonSpiTest{
 

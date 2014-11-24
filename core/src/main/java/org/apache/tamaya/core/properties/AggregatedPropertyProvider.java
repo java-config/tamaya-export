@@ -33,8 +33,6 @@ import java.util.*;
  * <li><b>: </b></li>
  * <li><b>: </b></li>
  * </ul>
- * 
- * @author Anatole Tresch.
  */
 class AggregatedPropertyProvider extends AbstractPropertyProvider{
 

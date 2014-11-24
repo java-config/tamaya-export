@@ -24,6 +24,7 @@ import org.apache.tamaya.Environment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Service for accessing {@link org.apache.tamaya.Environment}. Environments are used to
@@ -33,8 +34,6 @@ import java.util.Optional;
  * <li>thread safe,
  * <li>and behaves contextual.
  * </ul>
- * 
- * @author Anatole Tresch
  */
 public interface EnvironmentManagerSingletonSpi{
 

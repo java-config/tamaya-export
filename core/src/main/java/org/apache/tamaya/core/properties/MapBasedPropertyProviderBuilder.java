@@ -26,8 +26,6 @@ import java.util.*;
 /**
  * Builder class for creating a new instance of
  * {@link MapBasedPropertyProvider}-
- *
- * @author Anatole Tresch
  */
 public final class MapBasedPropertyProviderBuilder {
     protected MetaInfoBuilder metaInfoBuilder = MetaInfoBuilder.of();

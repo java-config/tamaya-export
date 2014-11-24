@@ -20,8 +20,6 @@ package org.apache.tamaya.core.properties;
 
 /**
  * Policy that defines how the different aggregates should be combined.
- *
- * @author Anatole Tresch.
  */
 public enum AggregationPolicy{
     /** Ignore overrides, only extend (additive). */

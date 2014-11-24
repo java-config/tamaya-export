@@ -28,8 +28,6 @@ import java.util.stream.Stream;
 
 /**
  * Singleton accessor to access registered reader mechanism.
- *
- * @author Anatole Tresch.
  */
 public class DefaultPathResourceLoader implements ResourceLoader{
 
