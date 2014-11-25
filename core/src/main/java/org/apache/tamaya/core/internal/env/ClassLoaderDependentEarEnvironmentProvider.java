@@ -32,6 +32,7 @@ import org.apache.tamaya.core.spi.ResourceLoader;
 
 import java.net.URI;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Anatole on 17.10.2014.
@@ -42,7 +43,8 @@ public class ClassLoaderDependentEarEnvironmentProvider implements EnvironmentPr
 
     private static final String EARID_PROP = "org.apache.tamaya.core.env.earId";
 
-    private Map<ClassLoader, Environment> environments = new WeakHashMap<>();
+    private Map<ClassLoader, Environment> environments = new ConcurrentHashMap<>();
+    private Map<String, Environment> environmentsByEarId = new ConcurrentHashMap<>();
 
     @Override
     public String getEnvironmentType() {
@@ -100,6 +102,14 @@ public class ClassLoaderDependentEarEnvironmentProvider implements EnvironmentPr
         builder.setAll(data);
         environment = builder.build();
         this.environments.put(cl, environment);
+        if(earId!=null) {
+            this.environmentsByEarId.put(earId, environment);
+        }
         return environment;
+    }
+
+    @Override
+    public Set<String> getEnvironmentContexts() {
+        return environmentsByEarId.keySet();
     }
 }

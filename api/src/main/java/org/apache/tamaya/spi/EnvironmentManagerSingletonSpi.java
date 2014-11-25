@@ -53,6 +53,21 @@ public interface EnvironmentManagerSingletonSpi{
     Environment getRootEnvironment();
 
     /**
+     * Get a environment of the given environment type and context.
+     * @param environmentType the target type, not null.
+     * @param contextId the target context, not null.
+     * @return the corresponding environment, if available.
+     */
+    public Optional<Environment> getEnvironment(String environmentType, String contextId);
+
+    /**
+     * Get the currently known environment contexts of a given environment type.
+     * @param environmentType the target environment type.
+     * @return the corresponding environment contexts known, never null.
+     */
+    public Set<String> getEnvironmentContexts(String environmentType);
+
+    /**
      * Access the chain of environment types that may produce an environment. Hereby it is possible
      * that chain elements can be ommitted in the final environment hierarchy, since the regarding
      * environment level is not defined or accessible.

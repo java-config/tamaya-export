@@ -83,13 +83,13 @@ public class EnvironmentManagerTest {
     }
 
     @Test
-    public void testEnvironmentPath(){
-        String envPath = Environment.of().getEnvironmentPath();
-        assertNotNull(envPath);
-        assertTrue(envPath.contains("root(root)"));
-        assertTrue(envPath.contains("system(system)"));
-        assertTrue(envPath.contains("myEar1(ear)"));
-        assertTrue(envPath.contains("MyApp1(application)"));
+    public void testEnvironmentId(){
+        String envId = Environment.of().getEnvironmentId();
+        assertNotNull(envId);
+        assertTrue(envId.contains("root(root)"));
+        assertTrue(envId.contains("system(system)"));
+        assertTrue(envId.contains("myEar1(ear)"));
+        assertTrue(envId.contains("MyApp1(application)"));
     }
 
     @Test

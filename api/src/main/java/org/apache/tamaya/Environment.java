@@ -19,6 +19,7 @@
 package org.apache.tamaya;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -87,13 +88,19 @@ public interface Environment extends StageSupplier, Iterable<Environment>{
      * <code>root[system].HumanOne[ear].rest[webapp].atsticks[user]</code>
      * @return the qualified path of this environment instance
      */
-    String getEnvironmentPath();
+    String getContext();
 
     /**
      * Get the parent context.
      * @return the parent context, or null.
      */
     Environment getParentEnvironment();
+
+    /**
+     * Access the environment as Map.
+     * @return the Map instance containing the environments properties, never null.
+     */
+    Map<String,String> toMap();
 
     /**
      * Get the current {@link org.apache.tamaya.Environment}. The environment is used to determine the current runtime state, which
@@ -129,12 +136,22 @@ public interface Environment extends StageSupplier, Iterable<Environment>{
     }
 
     /**
-     * Get the current environment of the given environment type.
-     * @param environmentType the target type.
-     * @return the corresponding environment
+     * Get a environment of the given environment type and context.
+     * @param environmentType the target type, not null.
+     * @param contextId the target context, not null.
+     * @return the corresponding environment, if available.
      */
-    public static Optional<Environment> getEnvironment(String environmentType){
-        return EnvironmentManager.getEnvironment(environmentType);
+    public static Optional<Environment> getEnvironment(String environmentType, String contextId){
+        return EnvironmentManager.getEnvironment(environmentType, contextId);
+    }
+
+    /**
+     * Get the currently known environment contexts of a given environment type.
+     * @param environmentType the target environment type.
+     * @return the corresponding environment contexts known, never null.
+     */
+    public static Set<String> getEnvironmentContexts(String environmentType){
+        return EnvironmentManager.getEnvironmentContexts(environmentType);
     }
 
     /**
@@ -145,5 +162,6 @@ public interface Environment extends StageSupplier, Iterable<Environment>{
     public static boolean isEnvironmentActive(String environmentType){
         return EnvironmentManager.isEnvironmentActive(environmentType);
     }
+
 
 }

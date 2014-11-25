@@ -61,9 +61,10 @@ public interface ManagedEnvironmentMBean {
      * Access the given environment as Map. the {@code environmentContext} is added to the
      * map using the key {@code __environmentId}.
      * @param environmentContext the identifier to access the environment instance
+     * @param context the context, not null.
      * @return a map with the currently defined environment keys and values.
      */
-    public Map<String,String> getEnvironment(String environmentContext);
+    public Map<String,String> getEnvironment(String environmentContext, String context);
 
     /**
      * Get a general JSON info on the currently available environments of the form:

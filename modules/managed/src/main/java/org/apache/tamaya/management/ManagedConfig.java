@@ -39,57 +39,57 @@ public class ManagedConfig implements ManagedConfigMBean{
     }
 
     @Override
-    public boolean isConfigurationAvailable(String configName, String envContext) {
+    public boolean isConfigurationAvailable(String configName, String envType, String context) {
         return false;
     }
 
     @Override
-    public boolean isConfigurationLoaded(String configName, String envContext) {
+    public boolean isConfigurationLoaded(String configName, String envType, String context) {
         return false;
     }
 
     @Override
-    public Map<String, String> getConfiguration(String configName, String envContext) throws ConfigException {
+    public Map<String, String> getConfiguration(String configName, String envType, String context) throws ConfigException {
         return null;
     }
 
     @Override
-    public Map<String, String> getRecursiveConfigValues(String area, String configName, String envContext) throws ConfigException {
+    public Map<String, String> getRecursiveConfigValues(String area, String configName, String envType, String context) throws ConfigException {
         return null;
     }
 
     @Override
-    public Map<String, String> getConfigValues(String area, String configName, String envContext) throws ConfigException {
+    public Map<String, String> getConfigValues(String area, String configName, String envType, String context) throws ConfigException {
         return null;
     }
 
     @Override
-    public Map<String, String> updateConfiguration(String configName, String envContext, Map<String, String> values, AggregationPolicy aggregationPolicy) throws ConfigException {
+    public Map<String, String> updateConfiguration(String configName, String envType, String context, Map<String, String> values, AggregationPolicy aggregationPolicy) throws ConfigException {
         return null;
     }
 
     @Override
-    public String getConfigurationInfo(String configName, String envContext) {
+    public String getConfigurationInfo(String configName, String envType, String context) {
         return null;
     }
 
     @Override
-    public Set<String> getAreas(String configName, String envContext) {
+    public Set<String> getAreas(String configName, String envType, String context) {
         return null;
     }
 
     @Override
-    public Set<String> getTransitiveAreas(String configName, String envContext) {
+    public Set<String> getTransitiveAreas(String configName, String envType, String context) {
         return null;
     }
 
     @Override
-    public boolean isAreaExisting(String area, String configName, String envContext) {
+    public boolean isAreaExisting(String area, String configName, String envType, String context) {
         return false;
     }
 
     @Override
-    public boolean isAreaEmpty(String area, String configName, String envContext) {
+    public boolean isAreaEmpty(String area, String configName, String envType, String context) {
         return false;
     }
 }

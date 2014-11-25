@@ -30,7 +30,32 @@ import java.util.Set;
  */
 public interface EnvironmentProvider {
 
+    /**
+     * Get the environment type this provider is responsible for.
+     * @return the environment.
+     */
     String getEnvironmentType();
+
+    /**
+     * Evaluates if an environment is currently active.
+     * @return
+     */
     boolean isEnvironmentActive();
+
+    /**
+     * Access (or create) a new environment for the given context.
+     * @param parentEnvironment the parent environment to b e set
+     * @return the environment, or null.
+     */
     Environment getEnvironment(Environment parentEnvironment);
+
+    /**
+     * Get all currently known environment contexts for this environment type.
+     * @return all currently known environment contexts, never null. Environment
+     * providers may prevent abritrary access to environment from outside of the
+     * regarding runtime context by just not including the context information
+     * in this call's result.
+     * @return all currently known environment contexts, never null.
+     */
+    Set<String> getEnvironmentContexts();
 }

@@ -19,7 +19,6 @@
 package org.apache.tamaya.core.env;
 
 import org.apache.tamaya.Environment;
-import org.apache.tamaya.MetaInfo;
 import org.apache.tamaya.Stage;
 
 import java.util.*;
@@ -49,15 +48,15 @@ class BuildableEnvironment implements Environment {
     }
 
     @Override
-    public String getEnvironmentId() {
+    public String getContext() {
         return id;
     }
 
     @Override
-    public String getEnvironmentPath() {
+    public String getEnvironmentId() {
         StringBuilder b = new StringBuilder();
         if(getParentEnvironment()!=null) {
-            b.append(getParentEnvironment().getEnvironmentPath());
+            b.append(getParentEnvironment().getContext());
         }
         if(b.length()>0)
             b.append('.');
@@ -66,7 +65,7 @@ class BuildableEnvironment implements Environment {
     }
 
     public String getFullId() {
-        return getEnvironmentId()+'('+getEnvironmentType()+')';
+        return getContext()+'('+getEnvironmentType()+')';
     }
 
     @Override

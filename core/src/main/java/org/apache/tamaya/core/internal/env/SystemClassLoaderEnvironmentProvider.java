@@ -31,10 +31,7 @@ import org.apache.tamaya.core.spi.ResourceLoader;
 
 
 import java.net.URI;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Anatole on 17.10.2014.
@@ -43,7 +40,7 @@ public class SystemClassLoaderEnvironmentProvider implements EnvironmentProvider
 
     private static  final Logger LOG = LogManager.getLogger(SystemClassLoaderEnvironmentProvider.class);
 
-    private Environment environment;
+    private Map<String,Environment> environments = new HashMap<>();
 
     @Override
     public String getEnvironmentType() {
@@ -57,8 +54,9 @@ public class SystemClassLoaderEnvironmentProvider implements EnvironmentProvider
 
     @Override
     public Environment getEnvironment(Environment parentEnvironment) {
-        if(this.environment!=null){
-            return this.environment;
+        Environment env = this.environments.get("system");
+        if(env!=null){
+            return env;
         }
         List<URI> propertyUris = Bootstrap.getService(ResourceLoader.class).getResources(ClassLoader.getSystemClassLoader(),
                 "classpath*:META-INF/env/system.properties", "classpath*:META-INF/env/system.xml", "classpath*:META-INF/env/system.ini");
@@ -85,8 +83,14 @@ public class SystemClassLoaderEnvironmentProvider implements EnvironmentProvider
         Set<URI> uris = new HashSet<>();
         uris.addAll(propertyUris);
         builder.set("environment.sources", uris.toString());
-        this.environment = builder.build();
-        return this.environment;
+        env = builder.build();
+        this.environments.put("system", env);
+        return env;
+    }
+
+    @Override
+    public Set<String> getEnvironmentContexts() {
+        return this.environments.keySet();
     }
 
 }

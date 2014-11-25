@@ -100,6 +100,29 @@ final class EnvironmentManager{
     }
 
     /**
+     * Get a environment of the given environment type and context.
+     * @param environmentType the target type, not null.
+     * @param contextId the target context, not null.
+     * @return the corresponding environment, if available.
+     */
+    public static Optional<Environment> getEnvironment(String environmentType, String contextId){
+        return Optional.ofNullable(environmentManagerSingletonSpi).orElseThrow(
+                () -> new IllegalStateException("No SPI loaded.")
+        ).getEnvironment(environmentType, contextId);
+    }
+
+    /**
+     * Get the currently known environment contexts of a given environment type.
+     * @param environmentType the target environment type.
+     * @return the corresponding environment contexts known, never null.
+     */
+    public static Set<String> getEnvironmentContexts(String environmentType){
+        return Optional.ofNullable(environmentManagerSingletonSpi).orElseThrow(
+                () -> new IllegalStateException("No SPI loaded.")
+        ).getEnvironmentContexts(environmentType);
+    }
+
+    /**
      * Allows to check, if the czurrent environment type is one of the current active environment types.
      * @param environmentType the environment type to be queried.
      * @return true, if the czurrent environment type is one of the current active environment types.

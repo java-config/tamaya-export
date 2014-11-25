@@ -23,6 +23,8 @@ import org.apache.tamaya.spi.EnvironmentManagerSingletonSpi;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * Created by Anatole on 12.09.2014.
@@ -36,6 +38,16 @@ public class TestEnvironmentManagerSingleton implements EnvironmentManagerSingle
     @Override
     public Environment getRootEnvironment(){
         return null;
+    }
+
+    @Override
+    public Optional<Environment> getEnvironment(String environmentType, String contextId) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getEnvironmentContexts(String environmentType) {
+        return Collections.emptySet();
     }
 
     @Override

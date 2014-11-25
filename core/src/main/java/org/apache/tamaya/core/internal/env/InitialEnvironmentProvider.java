@@ -36,8 +36,7 @@ public final class InitialEnvironmentProvider implements EnvironmentProvider{
 
 	public static final String STAGE_PROP = "org.apache.tamaya.stage";
     public static final Stage DEFAULT_STAGE = Stage.development();
-
-    private Environment rootEnvironment;
+    private Map<String,Environment> environments = new HashMap<>();
 
 	public InitialEnvironmentProvider() {
         EnvironmentBuilder builder = EnvironmentBuilder.of(getEnvironmentType(), getEnvironmentType());
@@ -67,13 +66,18 @@ public final class InitialEnvironmentProvider implements EnvironmentProvider{
         for (Entry<String, String> en : System.getenv().entrySet()) {
             builder.set(en.getKey(), en.getValue());
         }
-        this.rootEnvironment = builder.build();
+        environments.put("root", builder.build());
 	}
 
     @Override
 	public Environment getEnvironment(Environment env) {
-        return rootEnvironment;
+        return environments.get("root");
 	}
+
+    @Override
+    public Set<String> getEnvironmentContexts() {
+        return new HashSet<>(environments.keySet());
+    }
 
     @Override
     public String getEnvironmentType() {

@@ -42,18 +42,18 @@ public class SingleEnvironmentManager implements EnvironmentManagerSingletonSpi{
     private static final String ENVIRONMENT_ORDER_KEY = "org.apache.tamaya.environmentOrder";
     private static final String DEFAULT_ENVIRONMENT_ORDER = "root,system,ear,application";
 
-    private List<EnvironmentProvider> environmentProviders = loadEnvironmentProviders();
+    private final Map<String,EnvironmentProvider> providerMap = new HashMap<>();
+    private final List<EnvironmentProvider> environmentProviders = loadEnvironmentProviders();
 
     private List<EnvironmentProvider> loadEnvironmentProviders() {
-        Map<String,EnvironmentProvider> providers = new HashMap<>();
         for(EnvironmentProvider prov: Bootstrap.getServices(EnvironmentProvider.class)){
-            providers.put(prov.getEnvironmentType(), prov);
+            providerMap.put(prov.getEnvironmentType(), prov);
         }
         String providerOrdering = MetaConfig.getOrDefault(ENVIRONMENT_ORDER_KEY, DEFAULT_ENVIRONMENT_ORDER);
         String[] ids = providerOrdering.split(",");
         List<EnvironmentProvider> providerList = new ArrayList<>();
         for(String id: ids) {
-            providerList.add(Optional.of(providers.get(id.trim())).get());
+            providerList.add(Optional.of(providerMap.get(id.trim())).get());
         }
         return providerList;
     }
@@ -80,6 +80,18 @@ public class SingleEnvironmentManager implements EnvironmentManagerSingletonSpi{
             }
         }
         throw new IllegalStateException("No root environment present.");
+    }
+
+    @Override
+    public Optional<Environment> getEnvironment(String environmentType, String contextId) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getEnvironmentContexts(String environmentType) {
+        return Optional.ofNullable(providerMap.get(environmentType))
+                .orElseThrow(() -> new IllegalArgumentException("No such environment type: " + environmentType))
+                .getEnvironmentContexts();
     }
 
     @Override

@@ -31,6 +31,7 @@ import org.apache.tamaya.core.spi.ResourceLoader;
 
 import java.net.URI;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Anatole on 17.10.2014.
@@ -41,7 +42,8 @@ public class ClassLoaderDependentApplicationEnvironmentProvider implements Envir
 
     private static final String WARID_PROP = "org.apache.tamaya.env.applicationId";
 
-    private Map<ClassLoader, Environment> environments = new WeakHashMap<>();
+    private Map<ClassLoader, Environment> environments = new ConcurrentHashMap<>();
+    private Map<String, Environment> environmentsByAppId = new ConcurrentHashMap<>();
 
     @Override
     public String getEnvironmentType() {
@@ -94,6 +96,14 @@ public class ClassLoaderDependentApplicationEnvironmentProvider implements Envir
         builder.setAll(data);
         environment = builder.build();
         this.environments.put(cl, environment);
+        if(applicationId!=null) {
+            this.environmentsByAppId.put(applicationId, environment);
+        }
         return environment;
+    }
+
+    @Override
+    public Set<String> getEnvironmentContexts() {
+        return environmentsByAppId.keySet();
     }
 }
